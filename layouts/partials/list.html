@@ -1,0 +1,10 @@
+<ul class="posts">
+  {{ range .Data.Pages }}
+  <li>
+    <h2><a href="{{ .Site.BaseURL }}{{ .URL }}">{{ .Title }}</a></h2>
+    <span class="meta">
+      le {{ dateFormat "2" .Date }} {{ index $.Site.Data.mois (dateFormat "1" .Date) }} {{ dateFormat "2006" .Date }} {{ if isset .Params "categories" }}dans {{ replace (index .Params.categories 0 | humanize) "Cinema" "Cinéma" }}{{ end }}
+    </span>
+  </li>
+  {{ end }}
+</ul>

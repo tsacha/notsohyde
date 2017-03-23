@@ -1,0 +1,22 @@
+{{ define "header" }}
+<header id="home-header" class="header" style="background-image: url(/img/bgs/{{ $.Scratch.Get "bgImage" }}.jpg)">
+  <div>
+    <a href="/" class="home_button"></a>
+  </div>
+  <div class="container">
+    <h1>
+      {{ if isset $.Site.Data.categories $.Section }}{{ index (index $.Site.Data.categories $.Section) "name" }}{{ end }}
+    </h1>
+  </div>
+  <div class="featured-image-caption-home"><a href="{{ $.Scratch.Get "bgCaptionLink" }}">{{ $.Scratch.Get "bgCaption" }}</a></div>
+  {{ partial "links" . }}
+</header>
+{{ end }}
+{{ define "main" }}
+    <article>
+      <div class="container">
+	{{ .Content }}
+	{{ partial "list" . }}
+      </div>
+    </article>
+{{ end }}

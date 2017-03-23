@@ -1,0 +1,17 @@
+name = "Not So Hyde"
+license = "MIT"
+licenselink = "https://github.com/tsacha/notsohyde/blob/master/LICENSE.md"
+description = ""
+homepage = "https://s.tremoureux.fr"
+tags = []
+features = []
+min_version = "0.19"
+
+[author]
+  name = "Sacha Trémoureux"
+  homepage = "https://s.tremoureux.fr"
+
+[original]
+  name = "Hyde"
+  homepage = "http://hyde.getpoole.com/"
+  repo = "https://github.com/poole/hyde"
