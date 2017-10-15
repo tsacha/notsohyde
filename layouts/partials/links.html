@@ -1,7 +1,7 @@
 <div class="links">
   <ul>
-    {{ range $section, $pages := .Site.Sections }}
-    <li><a href="/{{ $section }}/">{{ index (index $.Site.Data.categories $section) "name" }}</a></li>
+    {{ range .Site.Sections }}
+    <li><a href="/{{ .Section }}/">{{ index (index $.Site.Data.categories .Section) "name" }}</a></li>
     {{ end }}
     {{ range $.Site.Data.links }}
     <li><a href="{{ .url }}" >{{ .title }}</a></li>
