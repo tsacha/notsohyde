@@ -1,10 +1,14 @@
 <ul class="posts">
   {{ range .Data.Pages }}
+  {{ if (not (eq .Kind "section")) }}
   <li>
-    <h2><a href="{{ .Site.BaseURL }}{{ .URL }}">{{ .Title }}</a></h2>
+    <h2><a href="{{ .Site.BaseURL }}{{ .RelPermalink }}">{{ if eq .Kind "section" }}{{ index (index $.Site.Data.categories .Section) "name" }}{{ else }}{{ .Title }}{{ end }}</a></h2>
+    {{ if .Date }}
     <span class="meta">
-      le {{ dateFormat "2" .Date }} {{ index $.Site.Data.mois (dateFormat "1" .Date) }} {{ dateFormat "2006" .Date }} {{ if isset .Params "categories" }}dans {{ replace (index .Params.categories 0 | humanize) "Cinema" "Cinéma" }}{{ end }}
+      le {{ dateFormat "2" .Date }} {{ index $.Site.Data.mois (dateFormat "1" .Date) }} {{ dateFormat "2006" .Date }}
     </span>
+    {{ end }}
   </li>
+  {{ end }}
   {{ end }}
 </ul>

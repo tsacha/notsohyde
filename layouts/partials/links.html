@@ -1,7 +1,9 @@
 <div class="links">
   <ul>
     {{ range .Site.Sections }}
+    {{ if not (isset (index $.Site.Data.categories .Section) "hidden") }}
     <li><a href="/{{ .Section }}/">{{ index (index $.Site.Data.categories .Section) "name" }}</a></li>
+    {{ end }}
     {{ end }}
     {{ range $.Site.Data.links }}
     <li><a href="{{ .url }}" >{{ .title }}</a></li>

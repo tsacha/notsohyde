@@ -5,37 +5,23 @@
     <div class="inner-container">
       <h1>{{ .Title }}</h1>
       <ul class="meta">
-	<li>
-	  <span>
-	    Publié le
-	  </span>
-	  {{ dateFormat "2" .Date }} {{ index $.Site.Data.mois (dateFormat "1" .Date) }} {{ dateFormat "2006" .Date }}
-	</li>
-	{{ if not (eq .Date .Lastmod) }}
-	<li>
-	  <span>
-	    Modifié le
-	  </span>
-	  {{ dateFormat "2" .Lastmod }} {{ index $.Site.Data.mois (dateFormat "1" .Lastmod) }} {{ dateFormat "2006" .Lastmod }}
-	</li>
-	{{ end }}
-	<li>
-	  <span>
-	    Catégorie
-	  </span>
-	  {{ index (index $.Site.Data.categories .Section ) "name" }}
-	</li>
+  <li>
+    <span>
+      Publié le
+    </span>
+    {{ dateFormat "2" .Date }} {{ index $.Site.Data.mois (dateFormat "1" .Date) }} {{ dateFormat "2006" .Date }}
+  </li>
+  {{ if not (eq .Date .Lastmod) }}
+  <li>
+    <span>
+      Modifié le
+    </span>
+    {{ dateFormat "2" .Lastmod }} {{ index $.Site.Data.mois (dateFormat "1" .Lastmod) }} {{ dateFormat "2006" .Lastmod }}
+  </li>
+  {{ end }}
       </ul>
       <div class="featured-image-caption"><a href="{{ $.Scratch.Get "bgCaptionLink" }}">{{ $.Scratch.Get "bgCaption" }}</a></div>
     </div>
-    <ul class="pagination">
-
-      <li class="previous">
-	<a href="/{{ .Section }}/">
-	  {{ index (index $.Site.Data.categories .Section ) "name" }}
-	</a>
-      </li>
-    </ul>
   </div>
   <div class="featured-image-caption-home"><a href="{{ $.Scratch.Get "bgCaptionLink" }}">{{ $.Scratch.Get "bgCaption" }}</a></div>
 </header>
